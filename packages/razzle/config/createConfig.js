@@ -38,11 +38,10 @@ module.exports = (
   env = 'dev',
   { clearConsole = true, host = 'localhost', port = 3000 }
 ) => {
-  // First we check to see if the user has a custom .babelrc file, otherwise
-  // we just use babel-preset-razzle.
-  const hasBabelRc = fs.existsSync(paths.appBabelRc);
+  // ericvicenti fork: totally disable razzles .babelrc file support, because the config conflicts with the RN packager .babelrc
+  const hasBabelRc = false; // forked line
   const mainBabelOptions = {
-    babelrc: true,
+    babelrc: false, // forked line
     cacheDirectory: true,
     presets: [],
   };
